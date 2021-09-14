@@ -4,7 +4,7 @@
         android:state_focused="false"
         android:state_selected="false"
         android:state_pressed="false"
-        android:color="@color/colorPrimary" />
+        android:color="#ffffff" />
     <item
         android:state_focused="true"
         android:state_selected="false"
@@ -14,13 +14,13 @@
         android:state_focused="false"
         android:state_selected="true"
         android:state_pressed="false"
-        android:color="@android:color/white" />
+        android:color="#60a0f0" />
     <item
         android:state_focused="true"
         android:state_selected="true"
         android:state_pressed="false"
-        android:color="@android:color/white" />
+        android:color="#68aef8" />
     <item
         android:state_pressed="true"
-        android:color="@android:color/white" />
+        android:color="#90e0f0" />
 </selector>

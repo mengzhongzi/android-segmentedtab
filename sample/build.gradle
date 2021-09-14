@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
-    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.marlon.segmentedtab.sample"
-        minSdkVersion Integer.parseInt(project.ANDROID_BUILD_MIN_SDK_VERSION)
-        targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
-        versionName project.VERSION_NAME
-        versionCode Integer.parseInt(project.VERSION_CODE)
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionName "1.0"
+        versionCode 1
     }
     buildTypes {
         release {
@@ -22,5 +22,5 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':segmented-tab')
-    compile "com.android.support:appcompat-v7:$ANDROID_SUPPORT_LIBRARY_VERSION"
+    compile 'androidx.appcompat:appcompat:1.0.0'
 }

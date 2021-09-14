@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
-import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
+import com.google.android.material.tabs.TabLayout;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewCompat;
+
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -17,7 +19,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 
-public class SegmentedTab extends android.support.design.widget.TabLayout {
+public class SegmentedTab extends TabLayout {
 
     private int tabSelectedColor;
     private int tabUnselectedColor;
@@ -66,8 +68,8 @@ public class SegmentedTab extends android.support.design.widget.TabLayout {
             typedArray.recycle();
         }
 
-        disablePadding("mTabPaddingStart");
-        disablePadding("mTabPaddingEnd");
+        disablePadding("tabPaddingStart");
+        disablePadding("tabPaddingEnd");
     }
 
     public void setup(List<String> titles) {
@@ -83,8 +85,8 @@ public class SegmentedTab extends android.support.design.widget.TabLayout {
             }
         }
 
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-        layoutParams.setMargins(Utils.getValueByDensity(getContext(), 20), layoutParams.topMargin, Utils.getValueByDensity(getContext(), 20), layoutParams.bottomMargin);
+//        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
+//        layoutParams.setMargins(Utils.getValueByDensity(getContext(), 20), layoutParams.topMargin, Utils.getValueByDensity(getContext(), 20), layoutParams.bottomMargin);
     }
 
     private View getTabView(int position, List<String> titles) {
@@ -98,12 +100,10 @@ public class SegmentedTab extends android.support.design.widget.TabLayout {
         } else {
             tab = new CenterTabView(getContext(), R.layout.center_tab);
         }
-
         tab.setBackground(this.tabSelectedColor, this.tabUnselectedColor, this.borderColorSelected, this.borderColorUnselected);
         tab.setTitle(titles.get(position));
         tab.setTextSize(this.titleTextSize);
         tab.setTextColorState(this.titleColor);
-
         if (this.typeface != null) {
             tab.setTitleTypeFace(this.typeface);
         }
